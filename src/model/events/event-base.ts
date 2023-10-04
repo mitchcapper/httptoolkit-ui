@@ -38,6 +38,14 @@ export abstract class HTKEventBase {
     @observable
     public pinned: boolean = false;
 
+    @observable
+    public mulitSelected: boolean = false;
+
+    @action.bound
+    onMultiSelected(evt : any){
+        this.mulitSelected = ! this.mulitSelected;
+    }
+
     // Logic elsewhere can put values into these caches to cache calculations
     // about this event weakly, so they GC with the event.
     // Keyed by symbols only, so we know we never have conflicts.
